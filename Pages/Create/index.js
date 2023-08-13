@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {
   Text,
   View,
@@ -6,8 +6,11 @@ import {
   TextInput,
   TouchableOpacity,
 } from 'react-native';
+import RadioButton from '../../componenta/radioButton';
 
 const CreateAccount = () => {
+  const [selectedNo, setSelectedNo] = useState(false);
+  const [selected, setSelected] = useState(false);
   return (
     <React.Fragment>
       <View style={{margin: '3%', justifyContent: 'center'}}>
@@ -17,23 +20,99 @@ const CreateAccount = () => {
 
         <View style={{marginTop: '10%'}}>
           <View style={styles.labelContainer}>
-            <Text style={{color: '#6c25ff'}}>Full Name</Text>
+            <Text style={{color: '#6c25ff'}}>
+              Full Name <Text style={{color: 'red'}}>* </Text>
+            </Text>
           </View>
           <View style={styles.inputContainer}>
-            <TextInput > <Text>Marry Doe</Text></TextInput>
+            <TextInput>
+              <Text>Marry Doe</Text>
+            </TextInput>
           </View>
         </View>
 
         <View style={{marginTop: '5%'}}>
+          <View style={styles.labelContainer}>
+            <Text style={{color: '#6c25ff'}}>
+              Phone Number <Text style={{color: 'red'}}>* </Text>{' '}
+            </Text>
+          </View>
+          <View style={styles.inputContainer}>
+            <TextInput>
+              <Text>Marry Doe</Text>
+            </TextInput>
+          </View>
+        </View>
+
+        <View style={{marginTop: '5%'}}>
+          <View style={styles.labelContainer}>
+            <Text style={{color: '#6c25ff'}}>
+              Email Address <Text style={{color: 'red'}}>* </Text>
+            </Text>
+          </View>
+          <View style={styles.inputContainer}>
+            <TextInput>
+              <Text>Marry Doe</Text>
+            </TextInput>
+          </View>
+        </View>
+
+        <View style={{marginTop: '5%'}}>
+          <View style={styles.labelContainer}>
+            <Text style={{color: '#6c25ff'}}>
+              Password <Text style={{color: 'red'}}>* </Text>
+            </Text>
+          </View>
+          <View style={styles.inputContainer}>
+            <TextInput>
+              <Text>Marry Doe</Text>
+            </TextInput>
+          </View>
+        </View>
+
+        <View style={{marginTop: '5%'}}>
+          <View style={styles.labelContainer}>
+            <Text style={{color: '#6c25ff'}}>Comapny Name</Text>
+          </View>
+          <View style={styles.inputContainer}>
+            <TextInput>
+              <Text>Marry Doe</Text>
+            </TextInput>
+          </View>
+        </View>
+
+        <View style={{marginTop: '5%'}}>
+          <View>
+            <Text style={{color: '#000'}}>
+              Are you an Agency? <Text style={{color: 'red'}}>* </Text>
+            </Text>
+            <View style={{marginTop: '2%', flexDirection: 'row'}}>
+              <TouchableOpacity
+                onPress={() => setSelected(!selected)}
+                style={{flexDirection: 'row', alignItems: 'center'}}>
+                <RadioButton selected={selected} />
+                <Text style={{color: '#000', marginLeft: '5%'}}>Yes</Text>
+              </TouchableOpacity>
+              <TouchableOpacity
+                onPress={() => setSelectedNo(!selectedNo)}
+                style={{flexDirection: 'row', alignItems: 'center'}}>
+                <RadioButton selected={selectedNo} />
+                <Text style={{color: '#000', marginLeft: '5%'}}>No</Text>
+              </TouchableOpacity>
+            </View>
+          </View>
+        </View>
+
+        <View style={{marginTop: '10%', justifyContent: 'flex-end'}}>
           <TouchableOpacity
             style={{
-              backgroundColor: 'gray',
+              backgroundColor: '#6c25ff',
               alignItems: 'center',
               borderRadius: 5,
               height: 40,
               justifyContent: 'center',
             }}>
-            <Text style={{color: '#fff', fontSize: 18}}>Login</Text>
+            <Text style={{color: '#fff', fontSize: 18}}>Create Account</Text>
           </TouchableOpacity>
         </View>
       </View>
